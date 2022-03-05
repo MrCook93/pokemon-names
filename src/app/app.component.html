@@ -1,0 +1,53 @@
+
+<div id ="header">Pokemon Information</div>
+
+<main>
+  <h2>
+<label for="search-text">Search for a Pokemon</label>
+<br>
+<input type="text" id="search-text"
+        [(ngModel)]="searchText" placeholder="Enter text to search" >
+        </h2>
+
+
+<ol class="gradient-list">
+  <li *ngFor="let poke of listPokemonDetails | pokeFilter: searchText : 'name'">
+<h1>>{{poke.name}}</h1>
+<h2>
+Pokemon Number: #{{poke.id}}
+<br>
+Height: {{poke.height}}ft
+<br>
+Weight: {{poke.weight}}lbs
+<br>
+<img src= {{poke.sprites.front_default}} alt={{poke.name}} height="50%" width = "50%" >
+</h2>
+  </li>
+  </ol>
+  </main>
+
+
+<!--
+  
+  Old table design not used
+  
+  <table>
+  <tr>
+    <th>ID</th>
+    <th>Name</th>
+    <th>Height</th>
+    <th>Image</th>
+    </tr>
+
+    <tr *ngFor="let poke of listPokemonDetails; index as i">
+      <td> {{poke.id}}</td>
+      <td> {{poke.name}}</td>
+      <td> {{poke.height}}</td>
+      <td> {{poke.sprites.front_default}}</td>
+
+    </tr>
+
+
+
+</table>
+-->
